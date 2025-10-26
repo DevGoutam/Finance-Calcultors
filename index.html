@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Calcultors</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+      <div class="container">
+        <h1>Finance Calcultors</h1>
+        <!-- tabs -->
+        <div class="tabs">
+          <div class="loan-calculator" data-loan>Loan Calculator</div>
+          <div class="sip-calculator" data-sip>Sip Calcultors</div>
+        </div>
+        <!-- Calculators -->
+        <div class="calculators">
+          <!-- loan-calculator -->
+          <div class="loan-calculator">
+            <!-- loan amount and value  -->
+            <div class="loan-amount input-group">
+              <div class="amount">Loan Amount</div>
+              <input type="number" placeholder="amount" class="text loan loanAmount" value="100000" min="10000" max="10000000" data-default="100000">
+              <input
+                type="range"
+                min="10000"
+                max="10000000"
+                value="100000"
+                step="500"
+                class="range loan"
+                data-default="100000"
+              />
+            </div>
+
+            <!-- Rate of interest -->
+            <div class="rateLoan input-group">
+              <div class="rate">Rate of interest (p.a)</div>
+               <input type="number" placeholder="amount" class="text loan loanRate" value="6.4" min="1" max="30" data-default="6.4">
+              <input
+                type="range"
+                value="6.4" min="1" max="30" class="range loan" step="0.1" data-default="6.4"
+              />
+            </div>
+            
+
+            <!-- loan tenure -->
+             <div class="loan-tenure input-group">
+              <div class="tenure">Loan tenure</div>
+                     <input type="number" placeholder="amount" class="text loan loanTime" value="6.4" min="1" max="30" data-default="6">
+              <input
+                type="range"
+                value="6" min="1" max="30" class="range loan" step="1" data-default="6"
+              />
+             </div>
+     
+             
+            <!-- total container   -->
+             <div class="totalContainer">
+              <!-- monthly Emi -->
+               <div class="monthlyEmi">
+                <div class="mEmi">Monthly EMI</div>
+               <div class="inputEmi"></div>
+               </div>
+              <!-- principle amount -->
+               <div class="principleAmount">
+                <div class="pAmount">Principle amount</div>
+               <div class="inputPrincipleAmount"></div>
+               </div>
+              <!-- Total interest -->
+               <div class="TotalInterest">
+                <div class="tInterest">Total interest</div>
+               <div class="inputInterest"></div>
+               </div>
+              <!-- Total amount -->
+               <div class="totalAmount">
+                <div class="tAmount">Total amount</div>
+               <div class="inputTotalAmount"></div>
+               </div>
+             </div>
+
+          </div>
+
+        <!-- SIP Calculator -->
+         <div class="sip-calculator">
+               <!-- sip amount and value  -->
+            <div class="loan-amount input-group">
+              <div class="amount">Amount</div>
+         <input type="number" placeholder="amount" class="text sipAmount" value="1000" min="100" max="10000000" data-default="1000">
+              <input
+                type="range"
+                min="100"
+                max="10000000"
+                value="1000"
+                step="500"
+                class="range"
+                data-default="1000"
+              />
+            </div>
+   
+
+            <!-- Rate of retrun -->
+            <div class="rateLoan input-group">
+              <div class="rate">Return rate (p.a)</div>
+                   <input type="number" placeholder="amount" class="text sipRate" value="12" min="1" max="30" data-default="12">
+              <input
+                type="range"
+                value="12" min="1" max="30" class="range" step="0.1" data-default="12"
+              />
+            </div>
+ 
+
+            <!-- time period -->
+             <div class="loan-tenure input-group">
+              <div class="tenure">Time period</div>
+              <input type="number" placeholder="amount" class="text sipTime" value="6" min="1" max="30" data-default="6">
+              <input
+                type="range"
+                value="6" min="1" max="30" class="range" step="1" data-default="6"
+              />
+             </div>
+      
+             
+            <!-- total container   -->
+             <div class="totalContainer">
+              <!-- invested amount -->
+               <div class="investedAmount">
+                <div class="iAmount">Invested amount</div>
+               <div class="inputInvestedAmount"></div>
+               </div>
+              <!-- Est.return -->
+               <div class="estReturn">
+                <div class="eReturn">Est. return</div>
+               <div class="inputEstReturn"></div>
+               </div>
+
+              <!-- Total amount -->
+               <div class="totalValue">
+                <div class="tValue">Total value</div>
+               <div class="inputTotalValue"></div>
+               </div>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
