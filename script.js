@@ -1,9 +1,50 @@
-window.addEventListener("DOMContentLoaded", () => {
-  linkInputs();
-  triggerSipUpdate()
-  sipCalculator();
-  triggerLoanUpdate(); // Run once initially
+// const loanCalculator = document.querySelector(".loan-calculator");
+// const sipCalculator = document.querySelector(".sip-calculator");
+// const loanTab = document.querySelector(".loan-tab");
+// const sipTab = document.querySelector(".sip-tab");
+
+// let currentTab = loanTab;
+// currentTab.classList.add("current-tab");
+
+
+const calculatorLoan = document.querySelector(".loan-calculator");
+const calculatorsip = document.querySelector(".sip-calculator");
+const loanTab = document.querySelector(".loan-tab");
+const sipTab = document.querySelector(".sip-tab");
+
+let currentTab = loanTab;
+currentTab.classList.add("currentTab");
+    calculatorLoan.classList.add("active");
+
+
+function switchTab(clickedTab) {
+  // Remove highlight from previous tab
+  if (clickedTab !== currentTab) {
+    currentTab.classList.remove("currentTab");
+    currentTab = clickedTab;
+    currentTab.classList.add("currentTab");
+  }
+
+  // Show / hide calculators based on which tab is clicked
+  if (clickedTab === loanTab) {
+    calculatorLoan.classList.add("active");
+    calculatorsip.classList.remove("active");
+  } else if (clickedTab === sipTab) {
+    calculatorsip.classList.add("active");
+    calculatorLoan.classList.remove("active");
+  }
+}
+
+
+loanTab.addEventListener("click", ()=>{
+  switchTab(loanTab)
 });
+sipTab.addEventListener("click", ()=>{
+  switchTab(sipTab)
+});
+
+
+
 
 function linkInputs() {
   const groups = document.querySelectorAll(".input-group");
@@ -118,7 +159,13 @@ function triggerSipUpdate() {
   if (!rate || !invest || !years) return;
 
   const result = sipCalculator(rate, invest, years);
-  document.querySelector(".inputInvestedAmount").innerText = result.investedAmount.toFixed(2);
-  document.querySelector(".inputEstReturn").innerText = result.interestEarned.toFixed(2);
-  document.querySelector(".inputTotalValue").innerText = result.totalAmount.toFixed(2);
+  document.querySelector(".inputInvestedAmount").innerText = Math.round(result.investedAmount.toFixed(2));
+  document.querySelector(".inputEstReturn").innerText =Math.round(result.interestEarned.toFixed(2)); 
+  document.querySelector(".inputTotalValue").innerText =Math.round(result.totalAmount.toFixed(2)); 
 }
+
+linkInputs();
+sipCalculator(); // rename if needed
+triggerLoanUpdate();
+triggerSipUpdate();
+
